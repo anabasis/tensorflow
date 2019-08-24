@@ -6,14 +6,16 @@
 
 ![python](./images/01.jpg)
 
-1. 소개
+### 1. 소개
+
 - 1990년 귀도 반 로섬(Guido van Rossum)이 만든 인터프리터(GW-Basic) 언어
-  . Java class처럼 미리 컴파일되어 있지 않고 실행시 라인단위로 읽어서 컴파일 후 실행
+  - Java class처럼 미리 컴파일되어 있지 않고 실행시 라인단위로 읽어서 컴파일 후 실행
 - 구글에서 만들어진 소프트웨어의 50%이상이 파이썬으로 만들어 졌음.
 - Dropbox, Facebook(Tornado) 개발에 활용됨.
 - C/C++과 함께 Machine Learning Open Source framework Tensorflow 기반 머신러닝 개발 언어로 지원됨.
-  
-2. 장점
+
+### 2. 장점
+
 - 자바에 비하면 문법이 단순하여 읽고 사용하기가 쉽다. (자바 코드의 약 50% 이하로 제작 가능)
 - 라즈베리파이등의 사물인터넷 기기와 연동이 수월하다.
 - 비동기식 코딩으로 혼란스러운 자원 경쟁이나 교착상태를 유발하지 않고도
@@ -30,7 +32,8 @@
 - 웹 프로그래밍, 수치연산 프로그래밍, 데이터베이스 프로그래밍등 다양한 분야 개발 가능
 - 데이터 수집 및 분석, 머신 러닝(인공지능), 텐서플로(Google)의 기반 언어
 
-3. 단점
+### 3. 단점
+
 - 모바일 컴퓨팅과 브라우저 부재.
 - 대단히 빠른 속도를 요구하거나 하드웨어를 직접 접근해야 하는 프로그램에는 부적합
   (빠른속도는 C, C++ 이용, 데이터분석 R에비해 고속)
@@ -43,14 +46,13 @@
 - Python은 전문적인 데이터분석가, 머신러닝 개발자, 웹 개발자가 주로 사용
 - R은 분석하여 결과를 도출하는 코드는 간결하고 수월하나 입출력및 언어의 특성이 부족하여
   다양한 처리를 하기가 어려움.
-    
-   
-[참고] 파이썬 api-ms-win-crt-runtime-l1-1-0.dll 오류 해결 방법
-① http://www.microsoft.com/ko-kr/download/details.aspx?id=48145 접속
-② 'vc_redist.x64.exe' 다운받아 설치
 
-* Nox Android App Player와 불규칙하게 충돌이 발생할 수 있음으로 사용을 권장하지않음. 
-  Nox 삭제 → 'vc_redist.x64.exe' 설치 → Python 설치 
+>> [참고] 파이썬 api-ms-win-crt-runtime-l1-1-0.dll 오류 해결 방법
+
+- URL <http://www.microsoft.com/ko-kr/download/details.aspx?id=48145> 접속
+- 'vc_redist.x64.exe' 다운받아 설치
+
+>> Nox Android App Player와 불규칙하게 충돌이 발생할 수 있음으로 사용을 권장하지않음. Nox 삭제 → 'vc_redist.x64.exe' 설치 → Python 설치
   
 ## [02] Anaconda 5.1.0 download
 
@@ -64,28 +66,22 @@
      아나콘다를 설치해야 머신러닝 개발이 편리하다. (개별 Library 설치시 Error 자주 발생)
    - 아나콘다 주요 구성 요소: Python 3.6, PIP, Pandas, Numpy, Scipy, Sklearn등
      수백개의 Library 포함
-   - 최신버전 다운로드: https://www.anaconda.com/download/   
-   - 모든 버전 다운로드: https://repo.continuum.io/archive/index.html
+   - 최신버전 다운로드: <https://www.anaconda.com/download/>
+   - 모든 버전 다운로드: <https://repo.continuum.io/archive/index.html>
      'Anaconda3-5.1.0-Windows-x86_64.exe    537.1M    2018-02-15' 다운로드( Python 3.6.0 기준)
 
 ## [03] Anaconda3-5.1.0 설치
- 
+
 1. Anaconda3-5.1.0 설치
- 
    1) 'Anaconda3-5.1.0-Windows-x86_64.exe' 파일을 관리자 권한으로 실행합니다.
-  
    2) 설치시 사용자 지정을 'All User'를 선택하고 설치합니다.(중요 ★)
-  
    3) 설치는 기본 경로에 설치합니다.
-
    4) 설치시 CMD창에서 명령 실행이 편리하도록 옵션을 모두 선택합니다.
-
    ![아나콘다](./images/05.jpg)
- 
- 
 2. 설치 확인
     - 윈도우 시작 메뉴 -> cmd
- 
-    > python --version
-    Python 3.6.4 :: Anaconda, Inc.
 
+```bash
+> python --version
+Python 3.6.4 :: Anaconda, Inc.
+```

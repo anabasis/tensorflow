@@ -23,7 +23,7 @@ password: soldesklove12, soldesk or soldesklove
      26'이상의 모니터(width: 2048 x height: 1024 이상)
    - 2개 이상의 GPU 설치시에는 케이스가 큰 ATX 데스크탑을 추천
    - RAM 8GB 이상을 권장합니다.
-   - HDD 사용보다 SSD 사용을 권장합니다. 
+   - HDD 사용보다 SSD 사용을 권장합니다.
    - NVIDIA RTX 2070 8G 이상의 그래픽 카드
 
 ## 수업 흐름
@@ -40,30 +40,34 @@ password: soldesklove12, soldesk or soldesklove
 
 ## [04] cx_freeze로 EXE 만들기
 
-1. http://cx-freeze.sourceforge.net
+1. <http://cx-freeze.sourceforge.net>
 2. install
-   pip install cx_freeze
+
+  ```bash
+  pip install cx_freeze
+  ```
+
 3. script 생성
-▷ /reexam/Setup.py
 
-```python
--------------------------------------------------------------------------------------
-# -*- coding: utf-8 -*-
+  ```python
+  # /reexam/Setup.py
+  # -*- coding: utf-8 -*-
+  import sys
+  from cx_Freeze import setup, Executable
 
-import sys
-from cx_Freeze import setup, Executable
-
-setup(name = "Pyperclip",
+  setup(name = "Pyperclip",
         version = "1.0",
         description = "Pyperclip phone email filter",
         author = "dev",
-        executables = [Executable("re09.py")])        
+        executables = [Executable("re09.py")])
         # executables = [Executable("re09.py", base="Win32GUI")])
-        
--------------------------------------------------------------------------------------
-```
+  ```
 
 4. 실행
-   setup.py build
 
-   build/exe.win-amd64-3.6/re09.exe 실행
+  ```bash
+  setup.py build
+  build/exe.win-amd64-3.6/re09.exe
+  ```
+
+  실행
