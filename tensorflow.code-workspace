@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "md"
+		},
+		{
+			"path": "ws_python"
 		}
 	]
 }
