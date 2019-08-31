@@ -9,5 +9,9 @@
 		{
 			"path": "docker"
 		}
-	]
+	],
+	"settings": {
+
+	}
+
 }
