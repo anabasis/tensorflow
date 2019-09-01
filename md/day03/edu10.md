@@ -155,7 +155,7 @@ import matplotlib.pyplot as plt
 
     ```bash
     (base) C:\Windows\system32>activate machine
-    (machine) C:\Windows\system32> tensorboard --logdir=C:/ai4/ws_python/notebook/logs
+    (machine) C:\Windows\system32> tensorboard --logdir=C:\ai_201909\doc\ws_python\notebook\logs
     ```
 
 3. 접속
