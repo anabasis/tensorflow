@@ -1,2 +1,0 @@
-print("start")
-import threading

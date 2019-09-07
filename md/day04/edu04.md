@@ -29,7 +29,7 @@ yr = np.array([0, 0, 0, 1, 1, 1, 1]).reshape(7, 1)
 ```
 
 ```python
-# 행렬의 곱셈을 해야함으로 행의 수는 열의 수와 동일하게 1개 생성, 
+# 행렬의 곱셈을 해야함으로 행의 수는 열의 수와 동일하게 1개 생성,
 # 행의수는 변수의 열수와 동일하게 해야함, 행렬 곱셈: 1행 2열 * 2행 1열.
 # 변수 2개: a1 * x + a2 * x + b, 2행 1열
 # 변수 3개: a1 * x + a2 * x + a3 * x + b, 3행 1열
@@ -51,7 +51,7 @@ x_data = np.array([
 
 print('x_data[index]:', x_data[0])
 print('x_data[index]:', x_data[0].shape)
-new_x = np.array(x_data[0]).reshape(1, 2)# [7, 6]은 각각 공부 시간과 과외 수업수, 1행 2열로 변경    
+new_x = np.array(x_data[0]).reshape(1, 2)# [7, 6]은 각각 공부 시간과 과외 수업수, 1행 2열로 변경
 print('x_data[index]:', new_x)
 print('x_data[index]:', new_x.shape)
 ```
@@ -61,11 +61,11 @@ session.close()
 ```
 
 ```python
-# 기존 그래프 출력시 Jupyter Notebook, Tensorboard 재시작 
+# 기존 그래프 출력시 Jupyter Notebook, Tensorboard 재시작
 LOG_DIR = '../../logs' # 폴더는 자동 생성됨. /ws_python/notebook/logs
 graph = tf.get_default_graph()
 with tf.summary.FileWriter(LOG_DIR) as writer:
-    writer.add_graph(graph)    
+    writer.add_graph(graph)
 ```
 
 ### 2. 로지스틱 회귀에서 퍼셉트론으로
@@ -73,8 +73,7 @@ with tf.summary.FileWriter(LOG_DIR) as writer:
 1) 로지스틱 회귀를 퍼셉트론 방식으로 표현한 예
    - x1과 x2가 입력되고, 각각 가중치 a1, a2를 만남
    - 여기에 b 값을 더한 후 시그모이드 함수를 거쳐 1 또는 0의 출력 값 y를 출력
-   - 이 그림의 개념이 1957년, 코넬 항공 연구소의 프랑크 로젠블라트라는 사람이 발표한,
-     ‘퍼셉트론(perceptron)’임
-   - 이 퍼셉트론은 그 후 여러 학자들의 노력을 통해 인공 신경망, 오차 역전파 등의
-     발전을 거쳐 지금의 딥러닝으로 이어지게 됨
-    ![](./images/05_2.jpg)
+   - 이 그림의 개념이 1957년, 코넬 항공 연구소의 프랑크 로젠블라트라는 사람이 발표한, ‘퍼셉트론(perceptron)’임
+   - 이 퍼셉트론은 그 후 여러 학자들의 노력을 통해 인공 신경망, 오차 역전파 등의 발전을 거쳐 지금의 딥러닝으로 이어지게 됨
+  ![로지스틱](./images/05_2.jpg)
+  

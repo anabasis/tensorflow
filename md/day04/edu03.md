@@ -14,13 +14,13 @@
     ![합격여부](./images/07.jpg)
 4) 시그모이드 함수는 0과 1사이의 입력데이터에 대해서 S 형태를 갖는 그래프를 생성함.
    - e는 자연 상수로 2.71828...의 값을 갖으며 'S' 자형태의 그래프 산출에 사용됨.
-   - Python code: y = 1 / (1 + np.e**(a * x_data + b))
+   - Python code: `y = 1 / (1 + np.e**(a * x_data + b))`
     ![합격여부](./images/07.jpg)
-5) y = 1 / (1 + np.e**(a * x_data + b))의 적용에서 a 는 경사도로 사용됨.
+5) `y = 1 / (1 + np.e**(a * x_data + b))`의 적용에서 a 는 경사도로 사용됨.
    - 경사가 너무 적으면 오차가 무한대가되어 구분값으로 쓰일 수 없음.
    - 경사도가 커지면 오차가 감소하여 목표값에 도달할 확률이 높아짐.
     ![합격여부](./images/09.jpg)
-6) y = 1 / (1 + np.e**(a * x_data + b))에서 b는 그래프의 좌우 이동을 의미
+6) `y = 1 / (1 + np.e**(a * x_data + b))`에서 b는 그래프의 좌우 이동을 의미
     ![합격여부](./images/10.jpg)
 
 ### 2. Sigmode 함수 실습
@@ -49,7 +49,7 @@ plt.rcParams['axes.unicode_minus'] = False  # minus 부호는 unicode 적용시 
 ```
 
 ```python
-def sigmoid(x):   
+def sigmoid(x):
     a = []  
     for itr in x:   # parameter로 전달 받은 x 변수(여기서는 array 만큼) 반복 실행
         a.append(1/(1+np.exp(-itr)))  # 반복 횟수는 x array만큼이며, 변경되는 값은 itr
@@ -58,7 +58,7 @@ def sigmoid(x):
 
 ```python
 # numpy의  linspace (start, end, num)를 이용해서 -8과 8사이에 100개의 값 생성
-x = np.linspace(-32, 32, 100) 
+x = np.linspace(-32, 32, 100)
 print(x)
 sig = sigmoid(x)
 print(type(sig))
@@ -85,7 +85,7 @@ print(x) # 하나의 열로 구성된 열벡터
 X = tf.placeholder(tf.float64, shape=[None, 1], name='X') # 행은 무제한, 변수는 1개
 Y = tf.placeholder(tf.float64, shape=[None, 1], name='Y') # 답변용 변수는 1개
 
-# 행렬의 곱셈을 해야함으로 행의 수는 열의 수와 동일하게 1개 생성, 
+# 행렬의 곱셈을 해야함으로 행의 수는 열의 수와 동일하게 1개 생성,
 # 행의수는 변수의 열수와 동일하게 해야함.
 # 변수 1개: 1행 1열
 a = tf.Variable(tf.random_normal([1, 1], dtype=tf.float64, seed=0), name='a')
@@ -149,7 +149,7 @@ x_data = np.array([
                    [15]
                         ])  # 데이터
 print(x_data[0])         # 첫번째 행
-print(x_data[0].shape) # 첫번째행의 차원, 1차원 
+print(x_data[0].shape) # 첫번째행의 차원, 1차원
 print(x_data[0].reshape(1,1).shape) # 2차원 배열로 변경
 ```
 

@@ -88,7 +88,7 @@ x_train = []
 for i in range(1, 101, 1):  # 1 ~ 100
     x_train.append([i, 10]) # list에 list 추가: 2차원 배열
     # print(i)
-x_train = np.array(x_train) # list를 ndarray로 변환    
+x_train = np.array(x_train) # list를 ndarray로 변환
 print(x_train[0:5])
 print(x_train.shape)
 ```
@@ -98,7 +98,7 @@ y_train = []  # 실제값 저장용 list
 for i in range(len(x_train)):
     val = (x_train[i][0] * x_train[i][1])  # 다양한 수식을 적용
     y_train.append([val]) # 각행의 0열과 1열을 곱함
-    
+
 y_train = np.array(y_train)  # list -> ndarray  
 print(y_train[0:5])
 print(y_train.shape)
@@ -111,7 +111,7 @@ y_use = np.array([[110], [120], [130], [140], [150]]) # 1 * 10
 ```
 
 ## [03] 3개의 수치로 구성된 입력, 1개의 scala 출력 처리 실습
- 
+
 >> /ws_python/notebook/machine/keras/Basic3.ipynb
 
 ```python
