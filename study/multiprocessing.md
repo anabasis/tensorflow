@@ -523,12 +523,12 @@ e 가 BufferTooShort 의 인스턴스라면, e.args[0] 는 메시지를 바이�
 
 프로세스 간 통신을 위해 큐를 사용하는 예는 예제을 참조하십시오.
 
-multiprocessing.Pipe([duplex])
+`multiprocessing.Pipe([duplex])`
 파이프의 끝을 나타내는 Connection 객체 쌍 (conn1, conn2) 를 반환합니다.
 
 duplex 가 True (기본값) 면 파이프는 양방향입니다. duplex 가 False 인 경우 파이프는 단방향입니다: conn1 은 메시지를 받는 데에만 사용할 수 있고, conn2 는 메시지를 보낼 때만 사용할 수 있습니다.
 
-class multiprocessing.Queue([maxsize])
+`class multiprocessing.Queue([maxsize])`
 파이프와 몇 개의 록/세마포어를 사용하여 구현된 프로세스 공유 큐를 반환합니다. 프로세스가 처음으로 항목을 큐에 넣으면 버퍼에서 파이프로 객체를 전송하는 피더 스레드가 시작됩니다.
 
 제한 시간 초과를 알리기 위해 표준 라이브러리의 queue 모듈에서 정의되는 queue.Empty 와 queue.Full 예외를 일으킵니다.
