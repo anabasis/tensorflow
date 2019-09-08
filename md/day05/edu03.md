@@ -40,24 +40,24 @@
     >> /ws_python/notebook/machine/sonar/sonar.csv
 
 2. script
+    - 훈련용, 검증용
     >> /ws_python/notebook/machine/sonar/Sonar1.ipynb
 
-    ```python
-    # 훈련용, 검증용
-    df = pd.read_csv('./sonar.csv', header=None)
-    # print(df.info())
-    df.head()
-    ```
+        ```python
+        # 훈련용, 검증용
+        df = pd.read_csv('./sonar.csv', header=None)
+        # print(df.info())
+        df.head()
+        ```
 
-    ```python
-    data = df.values
-    print(type(data))
-    X = data[:, 0:60].astype(float)  # 0 ~ 59
-    print(X[0:5, 0:4])
-    Y_obj = data[:, 60]  # 1차원 배열
-    print(Y_obj[0:5])
-
-    ```
+        ```python
+        data = df.values
+        print(type(data))
+        X = data[:, 0:60].astype(float)  # 0 ~ 59
+        print(X[0:5, 0:4])
+        Y_obj = data[:, 60]  # 1차원 배열
+        print(Y_obj[0:5])
+        ```
 
 ## [02] 과적합 피하기(훈련데이터, 검증 데이터의 분할)
 
@@ -65,7 +65,7 @@
 ![과적합](./images/05.jpg)  
 
 - 학습 데이터와 테스트 데이터, 사용 데이터의 분리
-![학습](./images/06_2.jpg)  
+![학습](./images/06_1.jpg)  
 
 - 학습횟수를 늘린다고 모든 데이터의 정확도가 증가하지는 않음.
 ![학습횟수](./images/07.jpg)
