@@ -6,10 +6,10 @@
   (필터, 윈도 또는 커널이라고도 함)를 도입하는 기법
 - 특성의 파악
 ![고양이](./images/05.jpg)
-- 필터의 사용
+- 이미지의 특징을 찾아내기 위해 필터의 사용
 ![필터](./images/06_1.jpg)
 
--특성을 찾아가는 과정
+-특성을 찾아가는 과정, 해상도 높은 이미지를 단순한 픽셀로 추상화
 ![특성](./images/10.jpg)
 ![특성](./images/11.jpg)
 ![특성](./images/11_1.jpg)
@@ -17,6 +17,8 @@
 ![특성](./images/13.jpg)
 ![특성](./images/14.jpg)
 ![특성](./images/15.jpg)
+
+- 픽셀을 감소
 
 ### 1. 컨브넷의 학습 시각화하기
 
@@ -27,17 +29,37 @@
    - OpenCV는 TensorFlow , Torch / PyTorch 및 Caffe의 딥러닝 프레임워크를 지원한다.
    - Python 3.6의 경우 OpenCV 3.2.0 설치(OpenCV 4.0 버전은 에러남)
   
-  ```bash
-  (base) C:\Windows\system32>activate ai
-  (ai) C:\Windows\system32>pip install opencv-python==3.2.0.6
+    ```bash
+    (base) C:\Windows\system32>activate ai
+    (ai) C:\Windows\system32>pip install opencv-python==3.2.0.6
 
-  ERROR: (ai) C:\Windows\system32>conda install -c conda-forge opencv=3.2.0
-  ```
+    ERROR: (ai) C:\Windows\system32>conda install -c conda-forge opencv=3.2.0
+    ```
 
-2) Script
+2) pillow 설치
+   - StopIteration: Could not import PIL.Image. The use of `array_to_img` requires PIL. 에러 처리
+
+    ```bash
+    (base) C:\Windows\system32>activate machine
+    (machine) C:\Users\user>pip install pillow
+    ERROR: (machine) C:\Users\user>conda install pillow
+
+    (machine) C:\Users\user>deactivate
+
+    (base) C:\Windows\system32>activate machinegpu
+    (machinegpu) C:\Users\user>pip install pillow
+    ERROR:(machinegpu) C:\Users\user>conda install pillow
+    ```
+
+3) Script
    - `/ws_python/notebook/machine/keras/visualizing.ipynb`
 
 ### 2. CNN 흐름, 마스크(필터, 커널)의 동작
+
+- 마스크(필터,커널) : 큰이미지를 단순화
+- 이미지를 구성하는 큰 특징을 수치적으로 표현이 가능함
+- 픽셀수를 줄여서 이미지 사용을 최소화함
+- 픽셀수의 계산 : 가로 256, 세로 256, 256 칼라 이미지의 변수, 256*256*160000
 
 1) 0과 1로 구성된 원본 이미지 준비
   ![CNN](./images/05_1.jpg)
@@ -45,6 +67,7 @@
   ![CNN](./images/06_2.jpg)
 3) 마스크와 원본 이미지를 좌측 상단부터 곱한 결과를 더함.
    - (1 x 1) + (0 x 0) + (0 x 0) + (1 x 1) = 2
+   - 특징이 크면 발생하는 수도 큼
   ![CNN](./images/07.jpg)
 4) 다음열과 행으로 이동하며 가중치를 곱함.
   ![CNN](./images/08.jpg)
