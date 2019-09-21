@@ -171,45 +171,45 @@ Successfully installed pip-19.0.1
 
 ### 3. GPU 기반 Tensorflow 1.6.0 설치
 
-1) machinegpu 작업 환경 활성화
-   - 'Anaconda Prompt'에서 activate machinegpu 입력
-   - 비활성화: deactivate machinegpu
+#### 1) machinegpu 작업 환경 활성화
 
-  ```bash
-  (base) C:\Users\dev>activate machinegpu
-  (machinegpu) C:\Users\dev>python -m pip install --upgrade pip
-  ```
+- 'Anaconda Prompt'에서 activate machinegpu 입력
+- 비활성화: deactivate machinegpu
 
-2) GPU 기반 Tensorflow 1.6의 설치
-   - 지정된 버전의 설치
-  
-    ```bash
-    (machinegpu) C:\Users\dev>pip install tensorflow-gpu==1.6
+```bash
+(base) C:\Users\dev>activate machinegpu
+(machinegpu) C:\Users\dev>python -m pip install --upgrade pip
+```
 
-    ....
-    Successfully installed tensorflow-gpu-1.6.0 tensorflow-tensorboard-1.6.0
+#### 2) GPU 기반 Tensorflow 1.6의 설치
 
-    (machinegpu) C:\Users\dev>
-    ```
+```bash
+(machinegpu) C:\Users\dev>pip install tensorflow-gpu==1.6
 
-   >> You are using pip version 10.0.1, however version 19.0.1 is available. You should consider upgrading via the 'python -m pip install --upgrade pip' comm and. 발생시
+....
+Successfully installed tensorflow-gpu-1.6.0 tensorflow-tensorboard-1.6.0
 
-   ```bash
-   (machinegpu) C:\Users\user>python -m pip install --upgrade pip
-   Installing collected packages: pip
-   Successfully installed pip-19.2.3
-   ```
+(machinegpu) C:\Users\dev>
+```
 
-   >> mkl-random 1.0.1 requires cython, which is not installed. 발생시 추가 설치
+>> You are using pip version 10.0.1, however version 19.0.1 is available. You should consider upgrading via the 'python -m pip install --upgrade pip' comm and. 발생시
 
-   ```bash
-   (machinegpu) C:\Users\user>pip install mkl-random==1.0.1
-   100% |################################| 1.7MB 87kB/s
-   Installing collected packages: cython
-   Successfully installed cython-0.29.3
-   ```
+```bash
+(machinegpu) C:\Users\user>python -m pip install --upgrade pip
+Installing collected packages: pip
+Successfully installed pip-19.2.3
+```
 
-3) 삭제
+>> mkl-random 1.0.1 requires cython, which is not installed. 발생시 추가 설치
+
+```bash
+(machinegpu) C:\Users\user>pip install mkl-random==1.0.1
+100% |################################| 1.7MB 87kB/s
+Installing collected packages: cython
+Successfully installed cython-0.29.3
+```
+
+#### 3) 삭제
 
   ```bash
   (machinegpu) C:\Users\user>pip uninstall tensorflow-gpu
