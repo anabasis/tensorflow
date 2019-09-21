@@ -145,13 +145,13 @@ Successfully installed pip-19.0.1
 - 설치된 가상 환경 삭제
 
 ```bash
-(base) C:\Users\dev>conda remove --name aigpu --all
+(base) C:\Users\dev>conda remove --name machinegpu --all
 ```
 
 (4) 가상환경 생성(-n machine: 작업 환경 이름)
 
 ```bash
-(base) C:\Users\dev>conda create -n aigpu python=3.6 numpy scipy matplotlib spyder pandas seaborn scikit-learn h5py
+(base) C:\Users\dev>conda create -n machinegpu python=3.6 numpy scipy matplotlib spyder pandas seaborn scikit-learn h5py
 ```
 
 (5) 가상 환경 생성 종료 화면
@@ -159,10 +159,10 @@ Successfully installed pip-19.0.1
 ```bash
 #
 # To activate this environment, use:
-# > conda activate aigpu
+# > conda activate machinegpu
 #
 # To deactivate this environment, use:
-# > conda deactivate aigpu
+# > conda deactivate machinegpu
 #
 # * for power-users using bash, you must source
 #
@@ -170,55 +170,69 @@ Successfully installed pip-19.0.1
 ```
 
 ### 3. GPU 기반 Tensorflow 1.6.0 설치
-  
-2) machinegpu 작업 환경 활성화
-- 'Anaconda Prompt'에서 activate machinegpu 입력
-- 비활성화: deactivate machinegpu
 
-(base) C:\Users\dev>activate aigpu
+1) machinegpu 작업 환경 활성화
+   - 'Anaconda Prompt'에서 activate machinegpu 입력
+   - 비활성화: deactivate machinegpu
 
-(aigpu) C:\Users\dev>python -m pip install --upgrade pip 
-  
- 
+  ```bash
+  (base) C:\Users\dev>activate machinegpu
+  (machinegpu) C:\Users\dev>python -m pip install --upgrade pip
+  ```
+
 2) GPU 기반 Tensorflow 1.6의 설치
-- 지정된 버전의 설치
-(aigpu) C:\Users\dev>pip install tensorflow-gpu==1.6
+   - 지정된 버전의 설치
+  
+    ```bash
+    (machinegpu) C:\Users\dev>pip install tensorflow-gpu==1.6
 
-....
-Successfully installed tensorflow-gpu-1.6.0 tensorflow-tensorboard-1.6.0
- 
-(aigpu) C:\Users\dev>
+    ....
+    Successfully installed tensorflow-gpu-1.6.0 tensorflow-tensorboard-1.6.0
 
-* You are using pip version 10.0.1, however version 19.0.1 is available.
-You should consider upgrading via the 'python -m pip install --upgrade pip' comm
-and. 발생시 
-(aigpu) C:\Users\user>python -m pip install --upgrade pip
+    (machinegpu) C:\Users\dev>
+    ```
 
+   >> You are using pip version 10.0.1, however version 19.0.1 is available. You should consider upgrading via the 'python -m pip install --upgrade pip' comm and. 발생시
 
-* mkl-random 1.0.1 requires cython, which is not installed. 발생시 추가 설치
-(aigpu) C:\Users\user>pip install mkl-random==1.0.1 
-    100% |################################| 1.7MB 87kB/s
-Installing collected packages: cython
-Successfully installed cython-0.29.3      
- 
+   ```bash
+   (machinegpu) C:\Users\user>python -m pip install --upgrade pip
+   Installing collected packages: pip
+   Successfully installed pip-19.2.3
+   ```
+
+   >> mkl-random 1.0.1 requires cython, which is not installed. 발생시 추가 설치
+
+   ```bash
+   (machinegpu) C:\Users\user>pip install mkl-random==1.0.1
+   100% |################################| 1.7MB 87kB/s
+   Installing collected packages: cython
+   Successfully installed cython-0.29.3
+   ```
+
 3) 삭제
-   (aigpu) C:\Users\user>pip uninstall tensorflow-gpu
-       
- 
+
+  ```bash
+  (machinegpu) C:\Users\user>pip uninstall tensorflow-gpu
+  ```
+
 ### 4. Tensorflow 설치 확인
 
 - import tensorflow as tf: 라이브러리 import 및 별명 선언
 - print(tf.__version__): Tensorflow 버전 출력
 - exit(): 종료
- 
-(aigpu) C:\Users\dev>python
+
+```bash
+(machinegpu) C:\Users\dev>python
 Python 3.5.4 |Continuum Analytics, Inc.| (default, Aug 14 2017, 13:41:13) [MSC v.1900 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
+
 >>> import tensorflow as tf
 C:\Users\dev\AppData\Local\conda\conda\envs\machine\lib\site-packages\h5py\__init__.py:34: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
+
 >>> print(tf.__version__)
 1.6.0
+
 >>> session=tf.Session()
 2019-02-06 07:20:10.086396: I C:\tf_jenkins\workspace\rel-win\M\windows-gpu\PY\3
 5\tensorflow\core\platform\cpu_feature_guard.cc:140] Your CPU supports instructi
@@ -236,63 +250,89 @@ ces: 0
 5\tensorflow\core\common_runtime\gpu\gpu_device.cc:993] Creating TensorFlow devi
 ce (/job:localhost/replica:0/task:0/device:GPU:0 with 1708 MB memory) -> physica
 l GPU (device: 0, name: GeForce 840M, pci bus id: 0000:01:00.0, compute capability: 5.0)
+
 >>> exit()
-   
-●  에러 발생시 조치
+```
+
+#### 에러 발생시 조치
+
 - 메시지
-ModuleNotFoundError: No module named '_pywrap_tensorflow_internal' 및 ImportError: DLL load failed: DLL 초기화 루틴을 실행할 수 없습니다.
- 
+  ModuleNotFoundError: No module named '_pywrap_tensorflow_internal' 및 ImportError: DLL load failed: DLL 초기화 루틴을 실행할 수 없습니다.
+
 - 해결 방법
-  https://www.microsoft.com/ko-kr/download/details.aspx?id=48145 접속
+  <https://www.microsoft.com/ko-kr/download/details.aspx?id=48145> 접속
   visual c++ 2015 redistributable (64bit) 다운받아 설치한다.
-      
-     
-5. 케라스 설치하기
-- 케라스(Keras)는 파이썬으로 작성된 오픈 소스 인공 신경망 라이브러리이다. 
+
+### 5. 케라스 설치하기
+
+- 케라스(Keras)는 파이썬으로 작성된 오픈 소스 인공 신경망 라이브러리이다.
 - Tensorflow를 사용하기쉽도록 인터페이스 역활을하여 적은 코드로 Tensorflow를 사용할 수 있도록 지원한다.
 
-* keras 2.1.6은 활성화 함수 softmax 사용법이 변경되어 2.1을 설치합니다.
- 
-(aigpu) C:\Users\dev>pip install keras==2.2.2
+#### keras 2.1.6은 활성화 함수 softmax 사용법이 변경되어 2.1을 설치합니다
+
+```bash
+(machinegpu) C:\Users\dev>pip install keras==2.2.2
 .....
 Collecting keras==2.2.2
-Successfully installed keras-2.2.2 
- 
- 
-6. 케라스 설치 확인
-(aigpu) C:\Users\dev>python
+Successfully installed keras-2.2.2
+```
+
+### 6. 케라스 설치 확인
+
+```bash
+(machinegpu) C:\Users\dev>python
 Python 3.5.4 |Continuum Analytics, Inc.| (default, Aug 14 2017, 13:41:13) [MSC v.1900 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
- 
+
 >>> import keras
- 
 C:\Users\dev\AppData\Local\conda\conda\envs\machine\lib\site-packages\h5py\__init__.py:34: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
 Using TensorFlow backend.
 >>>
- 
- 
-* Keras 설치 실패시 방법
+```
+
+#### Keras 설치 실패시 방법
   [시작 -> Anaconda Navigator -> 좌측 메뉴 Environments -> machinegpu 가상환경 선택 -> keras 검색 설치
- 
- 
-[04] Jupyter Notebook 커널(Conda 가상환경) 연동
- 
-1. [Anaconda Prompt] 관리자 권한으로 실행
+
+## [04] Jupyter Notebook 커널(Conda 가상환경) 연동
+
+### 1. [Anaconda Prompt] 관리자 권한으로 실행
+
+```bash
 (base) C:\Windows\system32> activate machinegpu
- 
- 
-2. ipykernel 라이브러리 설치
-(aigpu) C:\Windows\system32>pip install ipykernel 
- 
- 
-3.  jupyter notebook에 가상환경 kernel 추가
-1) GPU 기반 커널 연동
-(aigpu) C:\Windows\system32>python -m ipykernel install --user --name=aigpu
-   
-   
-4. 커널 해제
-(base) C:\Windows\system32>jupyter kernelspec uninstall aigpu
-Kernel specs to remove:  machine  C:\Users\soldesk\AppData\Roaming\jupyter\kernels\aigpu
- 
+```
+
+### 2. ipykernel 라이브러리 설치
+
+```bash
+(machinegpu) C:\Windows\system32>pip install ipykernel
+```
+
+### 3. jupyter notebook에 가상환경 kernel 추가
+-GPU 기반 커널 연동
+
+```bash
+(machinegpu) C:\Windows\system32>python -m ipykernel install --user --name=machinegpu
+```
+
+### 4. 커널 해제
+
+```bash
+(base) C:\Windows\system32>jupyter kernelspec uninstall machinegpu
+Kernel specs to remove:  machine  C:\Users\soldesk\AppData\Roaming\jupyter\kernels\machinegpu
+
 Remove 1 kernel specs [y/N]: y
+```
+
+### 5. Jupyter Notebook 실행 파일 생성
+
+- 기본적으로 사용자 계정 폴더가 작업 폴더로 열림으로 아래처럼 실행 파일 생성.
+
+>> C:/ai_201906/jupyter_gpu.cmd, 제작후 관리자 권한으로 실행
+
+```bash
+c:
+cd C:\ai_201909\doc\ws_python\notebook
+call activate machinegpu
+call jupyter notebook
+```

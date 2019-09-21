@@ -40,14 +40,14 @@ password: soldesklove12, soldesk or soldesklove
 
 ## [04] cx_freeze로 EXE 만들기
 
-1. <http://cx-freeze.sourceforge.net>
-2. install
+### 1. <http://cx-freeze.sourceforge.net>
+### 2. install
 
   ```bash
   pip install cx_freeze
   ```
 
-3. script 생성
+### 3. script 생성
 
   ```python
   # /reexam/Setup.py
@@ -63,11 +63,11 @@ password: soldesklove12, soldesk or soldesklove
         # executables = [Executable("re09.py", base="Win32GUI")])
   ```
 
-4. 실행
+### 4. 실행
 
   ```bash
   setup.py build
   build/exe.win-amd64-3.6/re09.exe
   ```
-
+  
   실행
