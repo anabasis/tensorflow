@@ -1,6 +1,8 @@
 # Mulltiprocessing --- 프로세스 기반 병렬 처리
 
 소스 코드: Lib/multiprocessing/
+<https://docs.python.org/ko/3/library/multiprocessing.html>
+<https://docs.python.org/ko/3/library/index.html>
 
 ## 소개
 
