@@ -7,40 +7,40 @@
 - rotation_range = 90
   지정된 각도 범위내에서 임의로 원본이미지를 회전, 단위는 도이며, 정수형
   예) 90이라면 0도에서 90도 사이에 임의의 각도로 회전
-    ![](./images/)
+    ![rotation_range](./images/05.png)
 
 - width_shift_range = 0.1
   지정된 수평방향 이동 범위내에서 임의로 원본이미지를 이동, 수치는 전체 넓이의 비율(실수)로 나타남
-  예) 0.1이고 전체 넓이가 100이면, 10픽셀 내외로 좌우 이동
-    ![](./images/)
+    예) 0.1이고 전체 넓이가 100이면, 10픽셀 내외로 좌우 이동
+    ![width_shift_range](./images/06.png)
 
 - height_shift_range = 0.1
   지정된 수직방향 이동 범위내에서 임의로 원본이미지를 이동, 수치는 전체 높이의 비율(실수)로 나타남
-  예) 0.1이고 전체 높이가 100이면, 10픽셀 내외로 상하 이동
-    ![](./images/)
+    예) 0.1이고 전체 높이가 100이면, 10픽셀 내외로 상하 이동
+    ![height_shift_range](./images/07.png)
 
 - shear_range = 0.5
   밀림 강도 범위내에서 임의로 원본이미지를 변형시킴,  수치는 시계반대방향으로 밀림 강도를 라디안으로 나타냄
   1 라디안은 호도로 57.3도, π 라디안은 180도, 0.5 라디안은 28.65도
-  예) 0.5이라면, 0.5 라이안내외로 시계반대방향으로 변형시킴
-    ![](./images/)
+    예) 0.5이라면, 0.5 라이안내외로 시계반대방향으로 변형시킴
+    ![shear_range](./images/08.png)
 
 - zoom_range = 0.3
   지정된 확대/축소 범위내에서 임의로 원본이미지를 확대/축소함, “1-수치”부터 “1+수치”사이 범위로 확대/축소를 함
   예) 0.3이라면, 0.7배에서 1.3배 크기 변화를 시킴
-    ![](./images/)
+    ![zoom_range](./images/09.png)
   
 - horizontal_flip = True
   수평방향으로 뒤집기를 함
-    ![](./images/)
+    ![horizontal_flip](./images/10.png)
 
 - vertical_flip = True
   수직방향으로 뒤집기를 함
-    ![](./images/)
+    ![vertical_flip](./images/11.png)
 
 - fill_mode='nearest'
   이미지 변형으로 인한 입력값 주변의 셀을 채울 방법으로 가장 가까운 인접값으로 채움
- 
+
 ## 2. 폴저 구조
 F:\AI3\WS_PYTHON\NOTEBOOK\MACHINE\CNN_SHAPE_EXT
 ├─.ipynb_checkpoints
@@ -66,10 +66,10 @@ F:\AI3\WS_PYTHON\NOTEBOOK\MACHINE\CNN_SHAPE_EXT
 └─use6
     └─256_256
   
- 
 3. script
-▷ /ws_python/notebook/machine/cnn_shape_ext/cnn_shape_data_ext.ipynb
--------------------------------------------------------------------------------------
+>> /ws_python/notebook/machine/cnn_shape_ext/cnn_shape_data_ext.ipynb
+
+```python
 import numpy as np
 
 # 랜덤시드 고정시키기
@@ -87,19 +87,25 @@ train_datagen = ImageDataGenerator(rescale=1./255,
                                    horizontal_flip=True,
                                    vertical_flip=True,
                                    fill_mode='nearest')
+```
 
+```python
 .....
 img = load_img('./src/circle.jpg')
 x = img_to_array(img)
 print(x.shape) # 24 X 24 칼라 이미지
 print(x)
+```
 
+```python
 .....
 img = load_img('./src/circle.jpg')
 x = img_to_array(img)
 x = x.reshape((1,) + x.shape)
 i = 0
+```
 
+```python
 # 이 for는 무한으로 반복되기 때문에 우리가 원하는 반복횟수를 지정하여, 지정된 반복횟수가 되면 빠져나오도록 해야함
 # 폴더를 미리 제작 할것
 for batch in train_datagen.flow(x, batch_size=1, 
@@ -107,7 +113,7 @@ for batch in train_datagen.flow(x, batch_size=1,
                                    save_prefix='c', 
                                    save_format='jpg'):
     i += 1
-    if i >= 105: 
+    if i >= 105:
         break
         
 img = load_img('./src/rectangle.jpg')
@@ -140,24 +146,19 @@ for batch in train_datagen.flow(x, batch_size=1,
     i += 1
     if i >= 105: 
         break
-        
+```
 
- 
--------------------------------------------------------------------------------------   
- 
-   
- 
- 
-[02] ImageDataGenerator를 이용한 컨볼루션 신경망(CNN) 학습률 향상시키기
+## [02] ImageDataGenerator를 이용한 컨볼루션 신경망(CNN) 학습률 향상시키기
   
-1. 문제 정의
-   - 문제 형태: 다중 클래스 분류
-   - 입력: 손으로 그린 삼각형, 사각형, 원 이미지
-   - 출력: 삼각형, 사각형, 원일 확률을 나타내는 벡터
+### 1. 문제 정의
+
+- 문제 형태: 다중 클래스 분류
+- 입력: 손으로 그린 삼각형, 사각형, 원 이미지
+- 출력: 삼각형, 사각형, 원일 확률을 나타내는 벡터
   
- 
-2. 데이터 준비하기
-   - 훈련
+### 2. 데이터 준비하기
+  
+  - 훈련
      train 
          ├─ circle
          ├─ rectangle
@@ -167,8 +168,7 @@ for batch in train_datagen.flow(x, batch_size=1,
         ├─ circle
         ├─ rectangle
         └─ triangle
- 
- 
+
 ## 3. 데이터셋 생성
 
 - 케라스에서는 이미지 파일을 쉽게 학습시킬 수 있도록 ImageDataGenerator 클래스를 제공,
