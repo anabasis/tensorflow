@@ -1,42 +1,42 @@
-[01] 4칙연산의 기능의 제작, http://127.0.0.1:8000/calc/ 제작
+# 4칙연산의 기능의 제작
+
+## [01] 4칙연산의 기능의 제작, http://127.0.0.1:8000/calc/ 제작
+
 1. URLconf 설계, URL과 View 매핑
-URL 패턴               View 이름   View가 처리하는 내용
-----------               -----------   ----------------------------------------
-/                         index()        index.html 템플릿 출력
-/calc/add/50/100/   add()          add.html 템플릿 출력, 더하기 연산 
-    
-     
+|URL 패턴|View 이름|View가 처리하는 내용|
+|:--:|:--:|:--:|
+|/|index()|index.html 템플릿 출력|
+|/calc/add/50/100/|add()|add.html 템플릿 출력, 더하기 연산|
+
 2. URLconf 설정
 ▷ /config/urls.py
--------------------------------------------------------------------------------------
-from django.contrib import admin
-from django.urls import path
-from ais import views # ais 패키지의 views.py 등록
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.index), # index.html
-    path('calc/add/<int:su1>/<int:su2>/', views.add), # 더하기 
-]
-   
--------------------------------------------------------------------------------------
-     
-   
+    ```python
+    from django.contrib import admin
+    from django.urls import path
+    from ais import views # ais 패키지의 views.py 등록
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', views.index), # index.html
+        path('calc/add/<int:su1>/<int:su2>/', views.add), # 더하기
+    ]
+    ```
+
 3. Model 제작, Calc 클래스의 add 메소드 선언
-▷ /ais/models.py 
--------------------------------------------------------------------------------------
-class Calc:
-    def add(self, su1, su2):
-        self.res = su1 + su2
-        return self.res
- 
-   
--------------------------------------------------------------------------------------
-  
- 
+▷ /ais/models.py
+
+    ```python
+    class Calc:
+        def add(self, su1, su2):
+            self.res = su1 + su2
+            return self.res
+    ```  
+
 4. /ais/views.py 설정
 ▷ /ais/views.py
--------------------------------------------------------------------------------------
+
+```python
 from django.shortcuts import render
 from ais.models import Calc  # models.py 파일의 Calc class import 선언
 
@@ -50,10 +50,7 @@ def add(request, su1, su2):
     res = calc.add(su1, su2)  # 메소드 호출
     # 출력 페이지로 보낼 값을 {.....} 블럭에 선언
     return render(request, 'calc/add.html', {'su1': su1, 'su2': su2, 'res': res})
- 
-    
--------------------------------------------------------------------------------------
-    
+```
 
 5. templates 생성       
 ▷ /ais/templates/calc/add.html
