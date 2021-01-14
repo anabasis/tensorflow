@@ -15,9 +15,7 @@
    - 모든 버전 다운로드: https://repo.continuum.io/archive/index.html
      'Anaconda3-5.1.0-Windows-x86_64.exe    537.1M    2018-02-15' 다운로드( Python 3.6.0 기준)
      * QT library 에러 발생 버전 설치하지 말것: 5.3.1, 5.3.0, 5.2.0
-    
-    
-    
+
 [02] Anaconda3-5.1.0 설치
  
 1. Anaconda3-5.1.0 설치
